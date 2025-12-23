@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eryk Topolski - E-commerce & Operations Manager</title>
+    <meta name="description"
+        content="Portfolio i CV Eryk Topolski - Operations Manager, E-commerce Specialist, AI Implementation Lead">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #050506;
+            --bg-secondary: #0a0a0c;
+            --bg-card: #111114;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-muted: #6e6e73;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #00ffaa;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --gradient-accent: linear-gradient(135deg, #00d4ff 0%, #00ffaa 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 24px;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-glow {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-block;
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-primary);
+            padding: 10px 24px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 30px;
+            background: rgba(0, 212, 255, 0.08);
+            margin-bottom: 32px;
+        }
+
+        /* Name */
+        .name {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(48px, 12vw, 96px);
+            font-weight: 900;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 20%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Title */
+        .title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(18px, 4vw, 28px);
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+        }
+
+        .title span {
+            color: var(--accent-primary);
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            gap: 48px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 64px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent-primary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        /* Navigation Cards */
+        .nav-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        .nav-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 24px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-accent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+        }
+
+        .nav-card:hover::before {
+            opacity: 1;
+        }
+
+        .nav-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+
+        .nav-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .nav-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .nav-arrow {
+            margin-top: 20px;
+            font-size: 20px;
+            color: var(--accent-primary);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s;
+        }
+
+        .nav-card:hover .nav-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Contact */
+        .contact {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            background: var(--bg-secondary);
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .contact-link svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent-primary);
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: linear-gradient(0deg, var(--bg-primary) 0%, transparent 100%);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .stats {
+                gap: 32px;
+            }
+
+            .stat-value {
+                font-size: 36px;
+            }
+
+            .nav-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-glow"></div>
+
+    <div class="container">
+        <div class="badge">E-commerce & Operations</div>
+
+        <h1 class="name">Eryk Topolski</h1>
+
+        <p class="title">Operations Manager · <span>AI Implementation Lead</span></p>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">+92%</div>
+                <div class="stat-label">Wzrost przychodów</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">367K</div>
+                <div class="stat-label">PLN półrocznie</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">31%</div>
+                <div class="stat-label">Konwersja</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">1</div>
+                <div class="stat-label">Autorski ERP</div>
+            </div>
+        </div>
+
+        <div class="nav-cards">
+            <a href="portfolio.html" class="nav-card">
+                <div class="nav-icon">📁</div>
+                <h2 class="nav-title">Portfolio</h2>
+                <p class="nav-desc">Case Studies projektów: LocalERP, skalowanie e-commerce na Allegro, automatyzacja
+                    procesów</p>
+                <span class="nav-arrow">→</span>
+            </a>
+
+            <a href="cv.html" class="nav-card">
+                <div class="nav-icon">📄</div>
+                <h2 class="nav-title">CV / Resume</h2>
+                <p class="nav-desc">Doświadczenie zawodowe, kompetencje techniczne, wykształcenie</p>
+                <span class="nav-arrow">→</span>
+            </a>
+        </div>
+
+        <div class="contact">
+            <a href="mailto:eryktopola01@gmail.com" class="contact-link">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                eryktopola01@gmail.com
+            </a>
+            <a href="tel:+48737481233" class="contact-link">
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                </svg>
+                +48 737 481 233
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        © 2024 Eryk Topolski · Zbudowane z pasją do automatyzacji
+    </footer>
+</body>
+
+</html>

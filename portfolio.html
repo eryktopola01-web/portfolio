@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eryk Topolski - Portfolio & Case Studies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #050506;
+            --bg-secondary: #0a0a0c;
+            --bg-card: #111114;
+            --bg-elevated: #18181c;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-muted: #6e6e73;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #00ffaa;
+            --accent-green: #34c759;
+            --accent-red: #ff453a;
+            --accent-blue: #0a84ff;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --gradient-accent: linear-gradient(135deg, #00d4ff 0%, #00ffaa 100%);
+            --gradient-dark: linear-gradient(180deg, #111114 0%, #050506 100%);
+            --shadow-glow: 0 0 60px rgba(0, 212, 255, 0.15);
+        }
+
+        /* Print-specific styles - optimized for PDF */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                text-rendering: geometricPrecision !important;
+            }
+
+            html {
+                -webkit-font-smoothing: antialiased !important;
+                -moz-osx-font-smoothing: grayscale !important;
+            }
+
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #ffffff;
+                --bg-card: #f8f9fa;
+                --bg-elevated: #f0f0f2;
+                --text-primary: #1a1a1e;
+                --text-secondary: #3a3a40;
+                --text-muted: #555555;
+                --accent-primary: #0099cc;
+                --accent-secondary: #00aa77;
+                --border-subtle: rgba(0, 0, 0, 0.12);
+            }
+
+            body {
+                background: white !important;
+                color: #1a1a1e !important;
+                font-size: 11pt !important;
+            }
+
+            /* Solid teal color instead of gradient for sharper print */
+            .hero {
+                background: #0099aa !important;
+                min-height: auto !important;
+                padding: 60px 24px !important;
+            }
+
+            .hero::before,
+            .hero::after {
+                display: none !important;
+            }
+
+            .hero-badge {
+                color: white !important;
+                border-color: rgba(255, 255, 255, 0.4) !important;
+                background: rgba(255, 255, 255, 0.15) !important;
+            }
+
+            .hero-name {
+                background: none !important;
+                -webkit-text-fill-color: white !important;
+                color: white !important;
+            }
+
+            .hero-title {
+                color: rgba(255, 255, 255, 0.9) !important;
+            }
+
+            .hero-title span {
+                color: white !important;
+            }
+
+            .hero-stat-value {
+                color: white !important;
+            }
+
+            .hero-stat-label {
+                color: rgba(255, 255, 255, 0.8) !important;
+            }
+
+            .section {
+                padding: 40px 0 !important;
+                background: white !important;
+            }
+
+            .section-label {
+                color: #0099cc !important;
+            }
+
+            .section-title {
+                color: #1a1a1e !important;
+            }
+
+            .case-study {
+                background: #f8f9fa !important;
+                border: 1px solid #e0e0e0 !important;
+                box-shadow: none !important;
+                break-inside: avoid;
+            }
+
+            .case-header {
+                border-bottom: 1px solid #e0e0e0 !important;
+            }
+
+            .case-title {
+                color: #1a1a1e !important;
+            }
+
+            .case-subtitle {
+                color: #555555 !important;
+            }
+
+            .case-tag {
+                background: #e8f4f8 !important;
+                color: #0088aa !important;
+            }
+
+            .case-block {
+                background: white !important;
+                border: 1px solid #e0e0e0 !important;
+            }
+
+            .case-block-title {
+                color: #0099cc !important;
+            }
+
+            .case-block-title::before {
+                background: #0099cc !important;
+            }
+
+            .case-block p {
+                color: #333333 !important;
+            }
+
+            .result-card {
+                background: white !important;
+                border: 1px solid #e0e0e0 !important;
+            }
+
+            .result-value {
+                color: #00aa77 !important;
+            }
+
+            .result-value.highlight {
+                color: #0099cc !important;
+            }
+
+            .result-label {
+                color: #555555 !important;
+            }
+
+            .tech-item {
+                background: #f0f0f2 !important;
+                border: 1px solid #e0e0e0 !important;
+                color: #333333 !important;
+            }
+
+            .tech-dot {
+                background: #0099cc !important;
+            }
+
+            .screenshot-item {
+                border: 1px solid #e0e0e0 !important;
+            }
+
+            .screenshot-caption {
+                background: #f5f5f7 !important;
+                color: #555555 !important;
+            }
+
+            .about-section {
+                background: #f8f9fa !important;
+            }
+
+            .about-text h3 {
+                color: #1a1a1e !important;
+            }
+
+            .about-text p {
+                color: #333333 !important;
+            }
+
+            .skill-card {
+                background: white !important;
+                border: 1px solid #e0e0e0 !important;
+            }
+
+            .skill-icon {
+                background: #0099aa !important;
+            }
+
+            .skill-name {
+                color: #1a1a1e !important;
+            }
+
+            .skill-desc {
+                color: #555555 !important;
+            }
+
+            .contact-section {
+                background: #0099aa !important;
+                padding: 60px 24px !important;
+            }
+
+            .contact-title {
+                color: white !important;
+            }
+
+            .contact-subtitle {
+                color: rgba(255, 255, 255, 0.9) !important;
+            }
+
+            .contact-link {
+                background: white !important;
+                color: #1a1a1e !important;
+                border: none !important;
+            }
+
+            .contact-link.primary {
+                background: white !important;
+                color: #0099cc !important;
+            }
+
+            footer {
+                background: white !important;
+                color: #777777 !important;
+            }
+
+            footer a {
+                color: #0099cc !important;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(0deg, var(--bg-primary) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-primary);
+            margin-bottom: 24px;
+            padding: 8px 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 30px;
+            background: rgba(0, 212, 255, 0.08);
+        }
+
+        .hero-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(48px, 10vw, 80px);
+            font-weight: 900;
+            letter-spacing: -3px;
+            line-height: 1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 20%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(20px, 4vw, 28px);
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .hero-title span {
+            color: var(--accent-primary);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent-primary);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        /* Case Study Cards */
+        .case-study {
+            background: var(--bg-card);
+            border-radius: 24px;
+            overflow: hidden;
+            margin-bottom: 48px;
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .case-study:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .case-header {
+            padding: 40px 48px 32px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .case-number {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .case-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .case-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .case-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .case-tag {
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 12px;
+            background: rgba(0, 212, 255, 0.1);
+            color: var(--accent-secondary);
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .case-content {
+            padding: 40px 48px;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .case-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .case-block {
+            padding: 24px;
+            background: var(--bg-elevated);
+            border-radius: 16px;
+        }
+
+        .case-block-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .case-block-title::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+        }
+
+        .case-block p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Screenshots Grid */
+        .screenshot-section {
+            margin-top: 32px;
+        }
+
+        .screenshot-label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .screenshot-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .screenshot-item:hover img {
+            transform: scale(1.02);
+        }
+
+        .screenshot-caption {
+            padding: 12px 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: var(--bg-elevated);
+        }
+
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .result-card {
+            background: var(--bg-elevated);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .result-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent-green);
+            line-height: 1;
+        }
+
+        .result-value.highlight {
+            color: var(--accent-primary);
+        }
+
+        .result-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+        }
+
+        /* Tech Stack */
+        .tech-stack {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .tech-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--gradient-dark);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-text h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .about-skills {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient-accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+
+        .skill-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .skill-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 100px 24px;
+            background: var(--bg-secondary);
+        }
+
+        .contact-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .contact-subtitle {
+            color: var(--text-secondary);
+            font-size: 18px;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .contact-link:hover {
+            background: var(--bg-elevated);
+            transform: translateY(-2px);
+        }
+
+        .contact-link.primary {
+            background: var(--gradient-accent);
+            color: var(--bg-primary);
+            border: none;
+        }
+
+        .contact-link.primary:hover {
+            box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        /* Placeholder for images */
+        .image-placeholder {
+            background: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 13px;
+            min-height: 200px;
+            border-radius: 12px;
+            border: 2px dashed var(--border-subtle);
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background: rgba(5, 5, 6, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .nav-brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 10px 20px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-card);
+        }
+
+        .nav-link.active {
+            color: var(--accent-primary);
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Adjust hero for fixed nav */
+        .hero {
+            padding-top: 140px !important;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            cursor: zoom-out;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .lightbox-close:hover {
+            opacity: 1;
+        }
+
+        .screenshot-item {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+        <a href="index.html" class="nav-brand">Eryk Topolski</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Start</a>
+            <a href="portfolio.html" class="nav-link active">Portfolio</a>
+            <a href="cv.html" class="nav-link">CV</a>
+        </div>
+    </nav>
+
+    <!-- Lightbox for images -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="Powiększony obraz">
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="hero-badge">Portfolio & Case Studies</span>
+        <h1 class="hero-name">Eryk Topolski</h1>
+        <p class="hero-title">Operations Manager · <span>AI Implementation Lead</span></p>
+
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <div class="hero-stat-value">+92%</div>
+                <div class="hero-stat-label">Wzrost przychodów</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">367K</div>
+                <div class="hero-stat-label">PLN półrocznie</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">31%</div>
+                <div class="hero-stat-label">Konwersja</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-value">1</div>
+                <div class="hero-stat-label">Autorski ERP</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Case Studies</p>
+                <h2 class="section-title">Projekty, które dowożą wynik</h2>
+            </div>
+
+            <!-- Case Study 1: LocalERP -->
+            <article class="case-study">
+                <div class="case-header">
+                    <span class="case-number">Projekt 01</span>
+                    <h3 class="case-title">LocalERP — Autorski System WMS & Fulfillment</h3>
+                    <p class="case-subtitle">Kompletna digitalizacja magazynu i automatyzacja procesów logistycznych</p>
+                    <div class="case-tags">
+                        <span class="case-tag">No-Code/AI</span>
+                        <span class="case-tag">ERP</span>
+                        <span class="case-tag">WMS</span>
+                        <span class="case-tag">API Integrations</span>
+                    </div>
+                </div>
+
+                <div class="case-content">
+                    <div class="case-grid">
+                        <div class="case-block">
+                            <h4 class="case-block-title">Wyzwanie</h4>
+                            <p>Brak spójnego systemu magazynowego, ręczna kontrola stanów między dwoma magazynami, błędy
+                                w wysyłkach, czasochłonna obsługa zwrotów i dokumentacji PZ/WZ.</p>
+                        </div>
+                        <div class="case-block">
+                            <h4 class="case-block-title">Rozwiązanie</h4>
+                            <p>Budowa dedykowanego systemu ERP/WMS od zera przy użyciu platformy Antigravity i AI.
+                                Integracja z API Allegro oraz firmami kurierskimi (InPost, DPD, DHL).</p>
+                        </div>
+                        <div class="case-block">
+                            <h4 class="case-block-title">Efekt</h4>
+                            <p>100% kontroli nad stanami w czasie rzeczywistym, automatyczne dokumenty magazynowe, smart
+                                listy zakupowe na podstawie rotacji towaru.</p>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-section">
+                        <p class="screenshot-label">Interfejs Systemu</p>
+                        <div class="screenshot-grid">
+                            <div class="screenshot-item">
+                                <img src="images/localerp-dashboard.png" alt="LocalERP Dashboard">
+                                <div class="screenshot-caption">Centralny Dashboard – Real-time monitoring KPI: dzienna
+                                    sprzedaż, zamówienia, przychody</div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="images/localerp-calendar.png" alt="LocalERP Calendar">
+                                <div class="screenshot-caption">Kalendarz Operacji Magazynowych – Wizualizacja PZ/WZ w
+                                    kontekście czasowym</div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="images/localerp-modal.png" alt="LocalERP Modal">
+                                <div class="screenshot-caption">Szczegóły Dziennych Operacji – Przyjęcia zewnętrzne z
+                                    listą produktów</div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="images/localerp-orders.png" alt="LocalERP Orders">
+                                <div class="screenshot-caption">Panel Zamówień – Integracja z kurierami InPost, DPD, DHL
+                                    i statusy wysyłek</div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="images/localerp-warehouse.png" alt="LocalERP Warehouse">
+                                <div class="screenshot-caption">Magazyn – Stany, historia operacji i śledzenie ruchów
+                                    (PZ/MM/WZ)</div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="images/localerp-mm-transfer.png" alt="LocalERP MM Transfer">
+                                <div class="screenshot-caption">Formularz Przesunięcia (MM) – Transfer między magazynami
+                                    MAIN ⇒ SHIPPING</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-stack">
+                        <div class="tech-item"><span class="tech-dot"></span>Antigravity (Low-Code)</div>
+                        <div class="tech-item"><span class="tech-dot"></span>GPT-4 (AI Logic)</div>
+                        <div class="tech-item"><span class="tech-dot"></span>Allegro API</div>
+                        <div class="tech-item"><span class="tech-dot"></span>Webhooks</div>
+                        <div class="tech-item"><span class="tech-dot"></span>React Frontend</div>
+                        <div class="tech-item"><span class="tech-dot"></span>FastAPI Backend</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Case Study 2: E-commerce Growth -->
+            <article class="case-study">
+                <div class="case-header">
+                    <span class="case-number">Projekt 02</span>
+                    <h3 class="case-title">Rewolucja na Allegro — Skalowanie Sprzedaży E-commerce</h3>
+                    <p class="case-subtitle">Strategia SEO, Ads i optymalizacja lejka konwersji dla TOP PARTNERS</p>
+                    <div class="case-tags">
+                        <span class="case-tag">E-commerce</span>
+                        <span class="case-tag">Allegro Ads</span>
+                        <span class="case-tag">SEO</span>
+                        <span class="case-tag">Analytics</span>
+                    </div>
+                </div>
+
+                <div class="case-content">
+                    <div class="case-grid">
+                        <div class="case-block">
+                            <h4 class="case-block-title">Wyzwanie</h4>
+                            <p>Stagnacja sprzedaży, niska widoczność ofert, przestarzały content wizualny, brak
+                                strategii reklamowej i selekcji asortymentu.</p>
+                        </div>
+                        <div class="case-block">
+                            <h4 class="case-block-title">Działania</h4>
+                            <p>Przebudowa portfolio produktowego, nowe zdjęcia i opisy SEO, agresywne kampanie Allegro
+                                Ads, analiza marżowości i eliminacja nierentownych SKU.</p>
+                        </div>
+                        <div class="case-block">
+                            <h4 class="case-block-title">Efekt</h4>
+                            <p>Ponad 354 tys. zł obrotu w 6 miesięcy, konwersja 31% (co 3. wizyta = zakup), podwojenie
+                                wolumenu sprzedaży rok do roku.</p>
+                        </div>
+                    </div>
+
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-value">+113%</div>
+                            <div class="result-label">Wizyty r/r</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value">+100%</div>
+                            <div class="result-label">Sprzedane szt.</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value highlight">+92%</div>
+                            <div class="result-label">Przychód r/r</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-value highlight">31.27%</div>
+                            <div class="result-label">Konwersja</div>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-section">
+                        <p class="screenshot-label">Wyniki z Panelu Allegro</p>
+                        <div class="screenshot-grid">
+                            <div class="screenshot-item">
+                                <img src="images/allegro-results.png" alt="Allegro Results">
+                                <div class="screenshot-caption">Panel Wyników – wzrosty procentowe wizyt, transakcji i
+                                    przychodów r/r</div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="images/allegro-chart.png" alt="Allegro Chart">
+                                <div class="screenshot-caption">Trend Sprzedaży – Łączny przychód 354 936 zł za okres
+                                    czerwiec-grudzień 2025</div>
+                            </div>
+                            <div class="screenshot-item">
+                                <img src="images/allegro-sales-details.png" alt="Allegro Sales Details">
+                                <div class="screenshot-caption">Szczegóły Sprzedaży – 367 262 zł obrotu, 11 637
+                                    transakcji, 85 szt/dzień</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- About / Skills Section -->
+    <section class="section about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Techniczny Manager z pasją do automatyzacji</h3>
+                    <p>
+                        Łączę solidne podstawy zarządzania operacyjnego z umiejętnościami technicznymi.
+                        Nie jestem programistą w klasycznym sensie – jestem <strong>budowniczym systemów</strong>,
+                        który używa narzędzi No-Code/AI do rozwiązywania realnych problemów biznesowych.
+                    </p>
+                    <p>
+                        Moje podejście to "T-shaped": szeroka wiedza o logistyce, e-commerce i zarządzaniu,
+                        z głęboką specjalizacją w <strong>automatyzacji procesów</strong> i wdrażaniu AI.
+                    </p>
+                </div>
+                <div class="about-skills">
+                    <div class="skill-card">
+                        <div class="skill-icon">🤖</div>
+                        <h4 class="skill-name">AI & Prompt Engineering</h4>
+                        <p class="skill-desc">GPT-4, Claude, Gemini — analiza, automatyzacja, obsługa klienta</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">📦</div>
+                        <h4 class="skill-name">Logistyka & Import</h4>
+                        <p class="skill-desc">1200 ton/rok z Azji, odprawy celne, supply chain</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">🛒</div>
+                        <h4 class="skill-name">E-commerce</h4>
+                        <p class="skill-desc">Allegro Ads, SEO, analityka, strategia cenowa</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">⚡</div>
+                        <h4 class="skill-name">No-Code / Low-Code</h4>
+                        <p class="skill-desc">Antigravity, API, Webhooks, budowa systemów</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2 class="contact-title">Zainteresowany współpracą?</h2>
+        <p class="contact-subtitle">Szukam wyzwań łączących zarządzanie operacyjne z wdrażaniem innowacji i technologii
+            AI.</p>
+        <div class="contact-links">
+            <a href="mailto:eryktopola01@gmail.com" class="contact-link primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                Napisz do mnie
+            </a>
+            <a href="cv.html" class="contact-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                </svg>
+                Pobierz CV
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Eryk Topolski · <a href="index.html">Start</a> · <a href="cv.html">CV</a> · Portfolio zbudowane z 💛 i
+            AI</p>
+    </footer>
+
+    <!-- Lightbox JavaScript -->
+    <script>
+        // Initialize lightbox on all screenshot images
+        document.querySelectorAll('.screenshot-item img').forEach(img => {
+            img.addEventListener('click', function (e) {
+                e.stopPropagation();
+                openLightbox(this.src);
+            });
+        });
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+
+</html>
