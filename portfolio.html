@@ -548,13 +548,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 16px;
+            align-items: start;
         }
 
         .screenshot-item {
             position: relative;
             border-radius: 12px;
             overflow: hidden;
-            background: var(--bg-primary);
+            background: transparent;
             border: 1px solid var(--border-subtle);
         }
 
@@ -570,7 +571,10 @@
         }
 
         .screenshot-caption {
-            display: none;
+            padding: 12px 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: var(--bg-elevated);
         }
 
         /* Results Grid */
